@@ -1,45 +1,36 @@
-# hello-world
+# 朴鱼
 
-> 我的第一个 GitHub 仓库：练手与实验
+> 做工程类公司经营管理的实践者。关注一件事：**把业务规则变成数据模型，再变成可执行的校验。**
 
-一个用来熟悉 GitHub 各项功能（Issue、Actions、Pages、Release）的沙盒仓库。
-内容会随实验不断变化，不保证稳定性。
+## 作品
 
-## 目录结构
+### [数据体检 · data-checkup](https://github.com/puyu-l/data-checkup)
 
-```
-.
-├── README.md              项目说明
-└── .github/
-    └── ISSUE_TEMPLATE/    Issue 模板
-        ├── bug_report.md
-        └── feature_request.md
-```
+给台账做一致性检查的命令行工具。输入合同、开票、流水三个 CSV，输出按严重程度分组的问题报告。
 
-## 快速开始
+- **10 条校验规则**，全部由一套「合同 → 开票 → 收款 → 成本 → 毛利」的关系模型推导而来
+- **穿透查询**：从任意一笔流水，追回它的合同、发票与成本科目
+- **纯 Python 标准库**，零依赖，拿到就能跑
+- 示例数据埋了 18 处典型错误，跑一遍就能看懂每条规则在防什么
 
-```bash
-git clone https://github.com/puyu-l/hello-world.git
-cd hello-world
-```
+[在线演示报告 →](https://puyu-l.github.io/data-checkup/)
 
-## 待办
+## 在做的事
 
-- [x] 创建仓库
-- [x] 配置 Issue 模板
-- [ ] 尝试 GitHub Actions 自动检查
-- [ ] 开启 GitHub Pages 发布静态页
-- [ ] 打第一个 Release
+一套本地部署的经营管理系统（私有仓库，源码不公开）：
 
-## 注意事项
+合同、分包合同、项目、公司收支、发票、人员工资一体化管理。核心是数据关系设计——
+合同作为唯一源头，向下既生成收入链（开票 → 收款），也生成成本链（分包 / 生产 / 运营分摊），
+最后汇总成单个项目的毛利。附带发票扫描件自动识别与全库数据体检。
 
-本仓库为**公开**状态，任何人都能看到提交历史。
+技术选型的约束来自使用者：必须双击就能用、不装环境、数据留在本机。
+所以后端只用 Python 标准库 + SQLite，前端是单文件页面，用 PyInstaller 打包成 exe。
 
-提交前确认文件里没有：
+## 技术栈
 
-- API key、访问令牌、私钥
-- 数据库密码、连接串
-- 内网地址、公司内部信息
+`Python` · `SQLite` · `原生 JavaScript` · `PyInstaller` · `openpyxl` · `pdfplumber`
 
-一旦提交并推送到公开仓库，即使后续删除，内容也可能已被爬虫抓取。
-这类文件请放到私有仓库，或通过 `.gitignore` 排除。
+## 关于这个仓库
+
+从零学 GitHub 的第一个仓库，用作练习场。真正想给人看的东西在
+[data-checkup](https://github.com/puyu-l/data-checkup)。
